@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="ichimoku">
 <title>ichimoku: Auxiliary Functions • ichimoku</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -12,13 +13,13 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
+<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="ichimoku: Auxiliary Functions">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="ichimoku: Auxiliary Functions">
 <meta property="og:description" content="ichimoku">
 <meta property="og:image" content="https://shikokuchuo.net/ichimoku/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -26,98 +27,88 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <div class="container template-article">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">ichimoku</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.1.9000</span>
-      </span>
-    </div>
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light" data-bs-theme="light"><div class="container">
+    
+    <a class="navbar-brand me-2" href="../index.html">ichimoku</a>
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="../reference/index.html">Reference</a>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.2</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item">
+  <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/reference.html">ichimoku: Cloud Charts - The Reference Manual</a>
-    </li>
-    <li>
-      <a href="../articles/strategies.html">ichimoku: Beyond Visualization - Quantitative Strategies</a>
-    </li>
-    <li>
-      <a href="../articles/utilities.html">ichimoku: Auxiliary Functions</a>
-    </li>
-    <li>
-      <a href="../articles/xoanda.html">ichimoku: The OANDA fxTrade API</a>
-    </li>
-  </ul>
+<li class="active nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/reference.html">ichimoku: Cloud Charts - The Reference Manual</a>
+    <a class="dropdown-item" href="../articles/strategies.html">ichimoku: Beyond Visualization - Quantitative Strategies</a>
+    <a class="dropdown-item" href="../articles/utilities.html">ichimoku: Auxiliary Functions</a>
+    <a class="dropdown-item" href="../articles/xoanda.html">ichimoku: The OANDA fxTrade API</a>
+  </div>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/shikokuchuo/ichimoku/" class="external-link">
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/shikokuchuo/ichimoku/">
     <span class="fa fa-github"></span>
      
   </a>
 </li>
-<li>
-  <a href="https://shikokuchuo.net/" class="external-link">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://shikokuchuo.net/">
     <span class="fa fa-cube"></span>
      
   </a>
 </li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+    
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
+</nav><div class="container template-article">
 
-      
 
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    <div class="page-header toc-ignore">
-      <h1 data-toc-skip>ichimoku: Auxiliary Functions</h1>
+
+
+<div class="row">
+  <main id="main" class="col-md-9"><div class="page-header">
+      <img src="../logo.png" class="logo" alt=""><h1>ichimoku: Auxiliary Functions</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/shikokuchuo/ichimoku/blob/HEAD/vignettes/utilities.Rmd" class="external-link"><code>vignettes/utilities.Rmd</code></a></small>
-      <div class="hidden name"><code>utilities.Rmd</code></div>
-
+      <div class="d-none name"><code>utilities.Rmd</code></div>
     </div>
 
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shikokuchuo.net/ichimoku/">ichimoku</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shikokuchuo.net/ichimoku/">ichimoku</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>This vignette is dedicated to the auxiliary functions exported by the ichimoku package.</p>
-<p>Note that these auxiliary functions are programmed for performance and hence stripped of superfluous validation and error-checking code. If they are used outside of their intended scopes then errors may be expected. In particular, input types must match exactly.</p>
+<p>This vignette is dedicated to the auxiliary functions exported by the
+ichimoku package.</p>
+<p>Note that these auxiliary functions are programmed for performance
+and hence stripped of superfluous validation and error-checking code. If
+they are used outside of their intended scopes then errors may be
+expected. In particular, input types must match exactly.</p>
 </div>
 <div class="section level2">
 <h2 id="core-auxiliary-functions">Core Auxiliary Functions<a class="anchor" aria-label="anchor" href="#core-auxiliary-functions"></a>
@@ -125,95 +116,116 @@
 <div class="section level4">
 <h4 id="tradingdays">tradingDays()<a class="anchor" aria-label="anchor" href="#tradingdays"></a>
 </h4>
-<p>Used to subset a vector of dates to trading days. Note: if the argument ‘holidays’ is passed to <code><a href="../reference/ichimoku.html">ichimoku()</a></code>, this is passed through to this function when calculating the dates for the future cloud.</p>
+<p>Used to subset a vector of dates to trading days. Note: if the
+argument ‘holidays’ is passed to <code><a href="../reference/ichimoku.html">ichimoku()</a></code>, this is passed
+through to this function when calculating the dates for the future
+cloud.</p>
 <p>Takes the following arguments:</p>
 <ul>
 <li>
 <code>x</code> a vector of POSIXct dates.</li>
 <li>
-<code>holidays</code> (optional) a vector, or function which outputs a vector, of dates defined as holidays. Set to NULL for a continuously-traded market. If not specified, New Year’s and Christmas day are defined as holidays by default.</li>
+<code>holidays</code> (optional) a vector, or function which outputs
+a vector, of dates defined as holidays. Set to NULL for a
+continuously-traded market. If not specified, New Year’s and Christmas
+day are defined as holidays by default.</li>
 <li>
 <code>...</code> other arguments not used by this function.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"1 day"</span>, length.out <span class="op">=</span> <span class="fl">7</span><span class="op">)</span>
-<span class="va">dates</span>
-<span class="co">#&gt; [1] "2020-01-01 UTC" "2020-01-02 UTC" "2020-01-03 UTC" "2020-01-04 UTC"</span>
-<span class="co">#&gt; [5] "2020-01-05 UTC" "2020-01-06 UTC" "2020-01-07 UTC"</span>
-<span class="fu"><a href="../reference/tradingDays.html">tradingDays</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span>
-<span class="co">#&gt; [1] FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE</span>
-<span class="fu"><a href="../reference/tradingDays.html">tradingDays</a></span><span class="op">(</span><span class="va">dates</span>, holidays <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2020-01-02"</span>, <span class="st">"2020-01-03"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1]  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE</span>
-<span class="fu"><a href="../reference/tradingDays.html">tradingDays</a></span><span class="op">(</span><span class="va">dates</span>, holidays <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"1 day"</span>, length.out <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></span>
+<span><span class="va">dates</span></span>
+<span><span class="co">#&gt; [1] "2020-01-01 UTC" "2020-01-02 UTC" "2020-01-03 UTC" "2020-01-04 UTC"</span></span>
+<span><span class="co">#&gt; [5] "2020-01-05 UTC" "2020-01-06 UTC" "2020-01-07 UTC"</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/tradingDays.html">tradingDays</a></span><span class="op">(</span><span class="va">dates</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/tradingDays.html">tradingDays</a></span><span class="op">(</span><span class="va">dates</span>, holidays <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2020-01-02"</span>, <span class="st">"2020-01-03"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/tradingDays.html">tradingDays</a></span><span class="op">(</span><span class="va">dates</span>, holidays <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="look">look()<a class="anchor" aria-label="anchor" href="#look"></a>
 </h4>
 <p>Can be used to inspect the informational attributes of R objects.</p>
-<p>Takes an object as an optional argument. Called without an argument, <code>.Last.value</code> will be used instead.</p>
-<p>For objects created by the ichimoku package, a list of attributes specific to that data type is returned.</p>
-<p>For other objects, a list of attributes that are non-standard for matrix / data.frame / xts objects is returned, or else invisible NULL if none are present.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cloud</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ichimoku.html">ichimoku</a></span><span class="op">(</span><span class="va">sample_ohlc_data</span>, ticker <span class="op">=</span> <span class="st">"TKR"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/look.html">look</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span>
-<span class="co">#&gt; $periods</span>
-<span class="co">#&gt; [1]  9 26 52</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodicity</span>
-<span class="co">#&gt; [1] 86400</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $ticker</span>
-<span class="co">#&gt; [1] "TKR"</span>
-
-<span class="va">strat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/strat.html">strat</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span>
-<span class="fu"><a href="../reference/look.html">look</a></span><span class="op">(</span><span class="va">strat</span><span class="op">)</span>
-<span class="co">#&gt; $periods</span>
-<span class="co">#&gt; [1]  9 26 52</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $periodicity</span>
-<span class="co">#&gt; [1] 86400</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $ticker</span>
-<span class="co">#&gt; [1] "TKR"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $strat</span>
-<span class="co">#&gt;                        [,1]            </span>
-<span class="co">#&gt; Strategy               "close &gt; tenkan"</span>
-<span class="co">#&gt; ---------------------  "----------"    </span>
-<span class="co">#&gt; Strategy cuml return % 8.57            </span>
-<span class="co">#&gt; Per period mean ret %  0.0334          </span>
-<span class="co">#&gt; Periods in market      138             </span>
-<span class="co">#&gt; Total trades           20              </span>
-<span class="co">#&gt; Average trade length   6.9             </span>
-<span class="co">#&gt; Trade success %        35              </span>
-<span class="co">#&gt; Worst trade ret %      -2.54           </span>
-<span class="co">#&gt; ---------------------  "----------"    </span>
-<span class="co">#&gt; Benchmark cuml ret %   9               </span>
-<span class="co">#&gt; Per period mean ret %  0.035           </span>
-<span class="co">#&gt; Periods in market      246             </span>
-<span class="co">#&gt; ---------------------  "----------"    </span>
-<span class="co">#&gt; Direction              "long"          </span>
-<span class="co">#&gt; Start                  2020-01-15      </span>
-<span class="co">#&gt; End                    2020-12-23      </span>
-<span class="co">#&gt; Ticker                 "TKR"</span>
-
-<span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mlgrid.html">mlgrid</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span>
-<span class="fu"><a href="../reference/look.html">look</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span>
-<span class="co">#&gt; $y</span>
-<span class="co">#&gt; [1] "logret"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $k</span>
-<span class="co">#&gt; [1] 1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $direction</span>
-<span class="co">#&gt; [1] "long"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $type</span>
-<span class="co">#&gt; [1] "boolean"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $ticker</span>
-<span class="co">#&gt; [1] "TKR"</span></code></pre></div>
+<p>Takes an object as an optional argument. Called without an argument,
+<code>.Last.value</code> will be used instead.</p>
+<p>For objects created by the ichimoku package, a list of attributes
+specific to that data type is returned.</p>
+<p>For other objects, a list of attributes that are non-standard for
+matrix / data.frame / xts objects is returned, or else invisible NULL if
+none are present.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cloud</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ichimoku.html">ichimoku</a></span><span class="op">(</span><span class="va">sample_ohlc_data</span>, ticker <span class="op">=</span> <span class="st">"TKR"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/look.html">look</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $ticker</span></span>
+<span><span class="co">#&gt; [1] "TKR"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $periodicity</span></span>
+<span><span class="co">#&gt; [1] 86400</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $periods</span></span>
+<span><span class="co">#&gt; [1]  9 26 52</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">strat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/strat.html">strat</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/look.html">look</a></span><span class="op">(</span><span class="va">strat</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $strat</span></span>
+<span><span class="co">#&gt;                        [,1]            </span></span>
+<span><span class="co">#&gt; Strategy               "close &gt; tenkan"</span></span>
+<span><span class="co">#&gt; ---------------------  "----------"    </span></span>
+<span><span class="co">#&gt; Strategy cuml return % 8.57            </span></span>
+<span><span class="co">#&gt; Per period mean ret %  0.0334          </span></span>
+<span><span class="co">#&gt; Periods in market      138             </span></span>
+<span><span class="co">#&gt; Total trades           20              </span></span>
+<span><span class="co">#&gt; Average trade length   6.9             </span></span>
+<span><span class="co">#&gt; Trade success %        35              </span></span>
+<span><span class="co">#&gt; Worst trade ret %      -2.54           </span></span>
+<span><span class="co">#&gt; ---------------------  "----------"    </span></span>
+<span><span class="co">#&gt; Benchmark cuml ret %   9               </span></span>
+<span><span class="co">#&gt; Per period mean ret %  0.035           </span></span>
+<span><span class="co">#&gt; Periods in market      246             </span></span>
+<span><span class="co">#&gt; ---------------------  "----------"    </span></span>
+<span><span class="co">#&gt; Direction              "long"          </span></span>
+<span><span class="co">#&gt; Start                  2020-01-15      </span></span>
+<span><span class="co">#&gt; End                    2020-12-23      </span></span>
+<span><span class="co">#&gt; Ticker                 "TKR"           </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $ticker</span></span>
+<span><span class="co">#&gt; [1] "TKR"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $periodicity</span></span>
+<span><span class="co">#&gt; [1] 86400</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $periods</span></span>
+<span><span class="co">#&gt; [1]  9 26 52</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mlgrid.html">mlgrid</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/look.html">look</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $sdevs</span></span>
+<span><span class="co">#&gt; [1] NA</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $means</span></span>
+<span><span class="co">#&gt; [1] NA</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $ticker</span></span>
+<span><span class="co">#&gt; [1] "TKR"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $type</span></span>
+<span><span class="co">#&gt; [1] "boolean"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $direction</span></span>
+<span><span class="co">#&gt; [1] "long"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $k</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $y</span></span>
+<span><span class="co">#&gt; [1] "logret"</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -222,86 +234,96 @@
 <div class="section level4">
 <h4 id="xts_df">xts_df()<a class="anchor" aria-label="anchor" href="#xts_df"></a>
 </h4>
-<p>Convert an ‘xts’ object to ‘data.frame’. This function can be an order of magnitude faster than <code><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame()</a></code> for an ‘xts’ object.</p>
-<p>Note that for ichimoku objects, a slightly faster, more specific version has been implemented as the S3 method for <code><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame()</a></code>. Hence using this utility on an ichimoku object is not necessary.</p>
+<p>Convert an ‘xts’ object to ‘data.frame’. This function can be an
+order of magnitude faster than <code><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame()</a></code> for an ‘xts’
+object.</p>
+<p>Note that for ichimoku objects, a slightly faster, more specific
+version has been implemented as the S3 method for
+<code><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame()</a></code>. Hence using this utility on an ichimoku
+object is not necessary.</p>
 <p>Takes the following arguments:</p>
 <ul>
 <li>
 <code>x</code> the ‘xts’ object to convert to ‘data.frame’.</li>
 <li>
-<code>keep.attrs</code> (optional) if set to TRUE, will preserve any custom attributes set on the original object.</li>
+<code>keep.attrs</code> (optional) if set to TRUE, will preserve any
+custom attributes set on the original object.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cloud</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ichimoku.html">ichimoku</a></span><span class="op">(</span><span class="va">sample_ohlc_data</span><span class="op">)</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/xts_df.html">xts_df</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="co">#&gt; 'data.frame':    281 obs. of  13 variables:</span>
-<span class="co">#&gt;  $ index  : POSIXct, format: "2020-01-02 00:00:00" "2020-01-03 00:00:00" ...</span>
-<span class="co">#&gt;  $ open   : num  123 123 123 123 124 ...</span>
-<span class="co">#&gt;  $ high   : num  123 123 123 124 125 ...</span>
-<span class="co">#&gt;  $ low    : num  122 123 122 123 124 ...</span>
-<span class="co">#&gt;  $ close  : num  123 123 123 124 125 ...</span>
-<span class="co">#&gt;  $ cd     : num  -1 1 1 1 1 1 -1 0 -1 -1 ...</span>
-<span class="co">#&gt;  $ tenkan : num  NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ kijun  : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ senkouA: num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ senkouB: num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ chikou : num  123 123 123 124 124 ...</span>
-<span class="co">#&gt;  $ cloudT : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ cloudB : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-
-<span class="co"># Preserving custom attributes:</span>
-<span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/xts_df.html">xts_df</a></span><span class="op">(</span><span class="va">cloud</span>, keep.attrs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">df2</span><span class="op">)</span>
-<span class="co">#&gt; 'data.frame':    281 obs. of  13 variables:</span>
-<span class="co">#&gt;  $ index  : POSIXct, format: "2020-01-02 00:00:00" "2020-01-03 00:00:00" ...</span>
-<span class="co">#&gt;  $ open   : num  123 123 123 123 124 ...</span>
-<span class="co">#&gt;  $ high   : num  123 123 123 124 125 ...</span>
-<span class="co">#&gt;  $ low    : num  122 123 122 123 124 ...</span>
-<span class="co">#&gt;  $ close  : num  123 123 123 124 125 ...</span>
-<span class="co">#&gt;  $ cd     : num  -1 1 1 1 1 1 -1 0 -1 -1 ...</span>
-<span class="co">#&gt;  $ tenkan : num  NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ kijun  : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ senkouA: num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ senkouB: num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ chikou : num  123 123 123 124 124 ...</span>
-<span class="co">#&gt;  $ cloudT : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ cloudB : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  - attr(*, "periods")= int [1:3] 9 26 52</span>
-<span class="co">#&gt;  - attr(*, "periodicity")= num 86400</span>
-<span class="co">#&gt;  - attr(*, "ticker")= chr "sample_ohlc_data"</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cloud</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ichimoku.html">ichimoku</a></span><span class="op">(</span><span class="va">sample_ohlc_data</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/xts_df.html">xts_df</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    281 obs. of  13 variables:</span></span>
+<span><span class="co">#&gt;  $ index  : POSIXct, format: "2020-01-02 00:00:00" "2020-01-03 00:00:00" ...</span></span>
+<span><span class="co">#&gt;  $ open   : num  123 123 123 123 124 ...</span></span>
+<span><span class="co">#&gt;  $ high   : num  123 123 123 124 125 ...</span></span>
+<span><span class="co">#&gt;  $ low    : num  122 123 122 123 124 ...</span></span>
+<span><span class="co">#&gt;  $ close  : num  123 123 123 124 125 ...</span></span>
+<span><span class="co">#&gt;  $ cd     : num  -1 1 1 1 1 1 -1 0 -1 -1 ...</span></span>
+<span><span class="co">#&gt;  $ tenkan : num  NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ kijun  : num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ senkouA: num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ senkouB: num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ chikou : num  123 123 123 124 124 ...</span></span>
+<span><span class="co">#&gt;  $ cloudT : num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ cloudB : num  NA NA NA NA NA NA NA NA NA NA ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Preserving custom attributes:</span></span>
+<span><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/xts_df.html">xts_df</a></span><span class="op">(</span><span class="va">cloud</span>, keep.attrs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">df2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    281 obs. of  13 variables:</span></span>
+<span><span class="co">#&gt;  $ index  : POSIXct, format: "2020-01-02 00:00:00" "2020-01-03 00:00:00" ...</span></span>
+<span><span class="co">#&gt;  $ open   : num  123 123 123 123 124 ...</span></span>
+<span><span class="co">#&gt;  $ high   : num  123 123 123 124 125 ...</span></span>
+<span><span class="co">#&gt;  $ low    : num  122 123 122 123 124 ...</span></span>
+<span><span class="co">#&gt;  $ close  : num  123 123 123 124 125 ...</span></span>
+<span><span class="co">#&gt;  $ cd     : num  -1 1 1 1 1 1 -1 0 -1 -1 ...</span></span>
+<span><span class="co">#&gt;  $ tenkan : num  NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ kijun  : num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ senkouA: num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ senkouB: num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ chikou : num  123 123 123 124 124 ...</span></span>
+<span><span class="co">#&gt;  $ cloudT : num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ cloudB : num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  - attr(*, "ticker")= chr "sample_ohlc_data"</span></span>
+<span><span class="co">#&gt;  - attr(*, "periodicity")= num 86400</span></span>
+<span><span class="co">#&gt;  - attr(*, "periods")= int [1:3] 9 26 52</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="matrix_df">matrix_df()<a class="anchor" aria-label="anchor" href="#matrix_df"></a>
 </h4>
-<p>Convert a matrix to ‘data.frame’. This function can be twice as fast as <code><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame()</a></code> for a matrix.</p>
+<p>Convert a matrix to ‘data.frame’. This function can be twice as fast
+as <code><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame()</a></code> for a matrix.</p>
 <p>Takes the following arguments:</p>
 <ul>
 <li>
 <code>x</code> the matrix to convert to ‘data.frame’.</li>
 <li>
-<code>keep.attrs</code> (optional) if set to TRUE, will preserve any custom attributes set on the original object.</li>
+<code>keep.attrs</code> (optional) if set to TRUE, will preserve any
+custom attributes set on the original object.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cloud</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ichimoku.html">ichimoku</a></span><span class="op">(</span><span class="va">sample_ohlc_data</span><span class="op">)</span>
-<span class="va">mcloud</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span>
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/matrix_df.html">matrix_df</a></span><span class="op">(</span><span class="va">mcloud</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
-<span class="co">#&gt; 'data.frame':    281 obs. of  12 variables:</span>
-<span class="co">#&gt;  $ open   : num  123 123 123 123 124 ...</span>
-<span class="co">#&gt;  $ high   : num  123 123 123 124 125 ...</span>
-<span class="co">#&gt;  $ low    : num  122 123 122 123 124 ...</span>
-<span class="co">#&gt;  $ close  : num  123 123 123 124 125 ...</span>
-<span class="co">#&gt;  $ cd     : num  -1 1 1 1 1 1 -1 0 -1 -1 ...</span>
-<span class="co">#&gt;  $ tenkan : num  NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ kijun  : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ senkouA: num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ senkouB: num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ chikou : num  123 123 123 124 124 ...</span>
-<span class="co">#&gt;  $ cloudT : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="co">#&gt;  $ cloudB : num  NA NA NA NA NA NA NA NA NA NA ...</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html" class="external-link">row.names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt;  chr [1:281] "2020-01-02 00:00:00" "2020-01-03 00:00:00" ...</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cloud</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ichimoku.html">ichimoku</a></span><span class="op">(</span><span class="va">sample_ohlc_data</span><span class="op">)</span></span>
+<span><span class="va">mcloud</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">cloud</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/matrix_df.html">matrix_df</a></span><span class="op">(</span><span class="va">mcloud</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    281 obs. of  12 variables:</span></span>
+<span><span class="co">#&gt;  $ open   : num  123 123 123 123 124 ...</span></span>
+<span><span class="co">#&gt;  $ high   : num  123 123 123 124 125 ...</span></span>
+<span><span class="co">#&gt;  $ low    : num  122 123 122 123 124 ...</span></span>
+<span><span class="co">#&gt;  $ close  : num  123 123 123 124 125 ...</span></span>
+<span><span class="co">#&gt;  $ cd     : num  -1 1 1 1 1 1 -1 0 -1 -1 ...</span></span>
+<span><span class="co">#&gt;  $ tenkan : num  NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ kijun  : num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ senkouA: num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ senkouB: num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ chikou : num  123 123 123 124 124 ...</span></span>
+<span><span class="co">#&gt;  $ cloudT : num  NA NA NA NA NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ cloudB : num  NA NA NA NA NA NA NA NA NA NA ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html" class="external-link">row.names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  chr [1:281] "2020-01-02" "2020-01-03" "2020-01-06" "2020-01-07" ...</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -310,50 +332,65 @@
 <div class="section level4">
 <h4 id="df_merge">df_merge()<a class="anchor" aria-label="anchor" href="#df_merge"></a>
 </h4>
-<p>Full join on an arbitrary number of ‘data.frame’ objects passed as arguments, preserving all unique entries. Can be used to combine historical time series data where each observation is indexed by a unique timestamp and all periods are complete.</p>
+<p>Full join on an arbitrary number of ‘data.frame’ objects passed as
+arguments, preserving all unique entries. Can be used to combine
+historical time series data where each observation is indexed by a
+unique timestamp and all periods are complete.</p>
 <p>Takes an arbitrary number of arguments:</p>
 <ul>
 <li>
 <code>...</code> data.frame objects to combine.</li>
 </ul>
-<p>Can be used to join price dataframes retrieved by <code><a href="../reference/oanda.html">oanda()</a></code>. The function is designed to join complete historical data. If the data to be merged contains data with incomplete periods, all entries are preserved rather than updated. If incomplete periods are detected within the data, a warning is issued, and the resulting dataframe should be manually inspected in case it contains unwanted duplicates. Use <code><a href="../reference/df_append.html">df_append()</a></code> for updating dataframes with new values.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">sample_ohlc_data</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="op">]</span>
-<span class="va">data1</span>
-<span class="co">#&gt;         time  open  high   low close volume</span>
-<span class="co">#&gt; 1 2020-01-02 123.0 123.1 122.5 122.7   1875</span>
-<span class="co">#&gt; 2 2020-01-03 122.7 122.8 122.6 122.8   1479</span>
-<span class="co">#&gt; 3 2020-01-06 122.8 123.4 122.4 123.3   1792</span>
-<span class="co">#&gt; 4 2020-01-07 123.3 124.3 123.3 124.1   1977</span>
-<span class="co">#&gt; 5 2020-01-08 124.1 124.8 124.0 124.8   2239</span>
-<span class="co">#&gt; 6 2020-01-09 124.8 125.4 124.5 125.3   1842</span>
-<span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">sample_ohlc_data</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">10</span>, <span class="op">]</span>
-<span class="va">data2</span>
-<span class="co">#&gt;          time  open  high   low close volume</span>
-<span class="co">#&gt; 4  2020-01-07 123.3 124.3 123.3 124.1   1977</span>
-<span class="co">#&gt; 5  2020-01-08 124.1 124.8 124.0 124.8   2239</span>
-<span class="co">#&gt; 6  2020-01-09 124.8 125.4 124.5 125.3   1842</span>
-<span class="co">#&gt; 7  2020-01-10 125.3 125.3 124.8 125.2   2548</span>
-<span class="co">#&gt; 8  2020-01-13 125.2 125.3 125.1 125.2   2946</span>
-<span class="co">#&gt; 9  2020-01-14 125.2 125.2 124.3 124.4   2796</span>
-<span class="co">#&gt; 10 2020-01-15 124.4 124.5 123.7 123.9   2879</span>
-<span class="fu"><a href="../reference/df_merge.html">df_merge</a></span><span class="op">(</span><span class="va">data1</span>, <span class="va">data2</span><span class="op">)</span>
-<span class="co">#&gt;          time  open  high   low close volume</span>
-<span class="co">#&gt; 1  2020-01-02 123.0 123.1 122.5 122.7   1875</span>
-<span class="co">#&gt; 2  2020-01-03 122.7 122.8 122.6 122.8   1479</span>
-<span class="co">#&gt; 3  2020-01-06 122.8 123.4 122.4 123.3   1792</span>
-<span class="co">#&gt; 4  2020-01-07 123.3 124.3 123.3 124.1   1977</span>
-<span class="co">#&gt; 5  2020-01-08 124.1 124.8 124.0 124.8   2239</span>
-<span class="co">#&gt; 6  2020-01-09 124.8 125.4 124.5 125.3   1842</span>
-<span class="co">#&gt; 7  2020-01-10 125.3 125.3 124.8 125.2   2548</span>
-<span class="co">#&gt; 8  2020-01-13 125.2 125.3 125.1 125.2   2946</span>
-<span class="co">#&gt; 9  2020-01-14 125.2 125.2 124.3 124.4   2796</span>
-<span class="co">#&gt; 10 2020-01-15 124.4 124.5 123.7 123.9   2879</span></code></pre></div>
+<p>Can be used to join price dataframes retrieved by
+<code><a href="../reference/oanda.html">oanda()</a></code>. The function is designed to join complete
+historical data. If the data to be merged contains data with incomplete
+periods, all entries are preserved rather than updated. If incomplete
+periods are detected within the data, a warning is issued, and the
+resulting dataframe should be manually inspected in case it contains
+unwanted duplicates. Use <code><a href="../reference/df_append.html">df_append()</a></code> for updating
+dataframes with new values.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">sample_ohlc_data</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="op">]</span></span>
+<span><span class="va">data1</span></span>
+<span><span class="co">#&gt;         time  open  high   low close volume</span></span>
+<span><span class="co">#&gt; 1 2020-01-02 123.0 123.1 122.5 122.7   1875</span></span>
+<span><span class="co">#&gt; 2 2020-01-03 122.7 122.8 122.6 122.8   1479</span></span>
+<span><span class="co">#&gt; 3 2020-01-06 122.8 123.4 122.4 123.3   1792</span></span>
+<span><span class="co">#&gt; 4 2020-01-07 123.3 124.3 123.3 124.1   1977</span></span>
+<span><span class="co">#&gt; 5 2020-01-08 124.1 124.8 124.0 124.8   2239</span></span>
+<span><span class="co">#&gt; 6 2020-01-09 124.8 125.4 124.5 125.3   1842</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">sample_ohlc_data</span><span class="op">[</span><span class="fl">4</span><span class="op">:</span><span class="fl">10</span>, <span class="op">]</span></span>
+<span><span class="va">data2</span></span>
+<span><span class="co">#&gt;          time  open  high   low close volume</span></span>
+<span><span class="co">#&gt; 4  2020-01-07 123.3 124.3 123.3 124.1   1977</span></span>
+<span><span class="co">#&gt; 5  2020-01-08 124.1 124.8 124.0 124.8   2239</span></span>
+<span><span class="co">#&gt; 6  2020-01-09 124.8 125.4 124.5 125.3   1842</span></span>
+<span><span class="co">#&gt; 7  2020-01-10 125.3 125.3 124.8 125.2   2548</span></span>
+<span><span class="co">#&gt; 8  2020-01-13 125.2 125.3 125.1 125.2   2946</span></span>
+<span><span class="co">#&gt; 9  2020-01-14 125.2 125.2 124.3 124.4   2796</span></span>
+<span><span class="co">#&gt; 10 2020-01-15 124.4 124.5 123.7 123.9   2879</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/df_merge.html">df_merge</a></span><span class="op">(</span><span class="va">data1</span>, <span class="va">data2</span><span class="op">)</span></span>
+<span><span class="co">#&gt;          time  open  high   low close volume</span></span>
+<span><span class="co">#&gt; 1  2020-01-02 123.0 123.1 122.5 122.7   1875</span></span>
+<span><span class="co">#&gt; 2  2020-01-03 122.7 122.8 122.6 122.8   1479</span></span>
+<span><span class="co">#&gt; 3  2020-01-06 122.8 123.4 122.4 123.3   1792</span></span>
+<span><span class="co">#&gt; 4  2020-01-07 123.3 124.3 123.3 124.1   1977</span></span>
+<span><span class="co">#&gt; 5  2020-01-08 124.1 124.8 124.0 124.8   2239</span></span>
+<span><span class="co">#&gt; 6  2020-01-09 124.8 125.4 124.5 125.3   1842</span></span>
+<span><span class="co">#&gt; 7  2020-01-10 125.3 125.3 124.8 125.2   2548</span></span>
+<span><span class="co">#&gt; 8  2020-01-13 125.2 125.3 125.1 125.2   2946</span></span>
+<span><span class="co">#&gt; 9  2020-01-14 125.2 125.2 124.3 124.4   2796</span></span>
+<span><span class="co">#&gt; 10 2020-01-15 124.4 124.5 123.7 123.9   2879</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="df_append">df_append()<a class="anchor" aria-label="anchor" href="#df_append"></a>
 </h4>
-<p>Update a ‘data.frame’ object with new data. Can be used to append new updated time series data to an existing dataframe, where each observation is indexed by a unique timestamp/identifier in a key column.</p>
+<p>Update a ‘data.frame’ object with new data. Can be used to append new
+updated time series data to an existing dataframe, where each
+observation is indexed by a unique timestamp/identifier in a key
+column.</p>
 <p>Takes 4 arguments:</p>
 <ul>
 <li>
@@ -361,78 +398,76 @@
 <li>
 <code>new</code> data.frame object containing new data.</li>
 <li>
-<code>key</code> [default ‘time’] column name used as key provided as a character string.</li>
+<code>key</code> [default ‘time’] column name used as key provided
+as a character string.</li>
 <li>
-<code>keep.attr</code> [default ‘timestamp’] name of an attribute in ‘new’ to retain, if present, provided as a character string.</li>
+<code>keep.attr</code> [default ‘timestamp’] name of an attribute in
+‘new’ to retain, if present, provided as a character string.</li>
 </ul>
-<p>Can be used to update price dataframes retrieved by <code><a href="../reference/oanda.html">oanda()</a></code>. The function is designed to update existing data with new values as they become available. As opposed to <code><a href="../reference/df_merge.html">df_merge()</a></code>, the data in ‘new’ will overwrite the data in ‘old’ rather than create duplicates.</p>
-<p>If the attribute specified by ‘keep.attr’ is present in ‘new’, for example the ‘timestamp’ in pricing data returned by <code><a href="../reference/oanda.html">oanda()</a></code>, this is retained. If the attribute is not found in ‘new’, the argument has no effect. All other custom attributes are dropped.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">sample_ohlc_data</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span>, <span class="op">]</span>
-<span class="va">data1</span>
-<span class="co">#&gt;         time  open  high   low close volume</span>
-<span class="co">#&gt; 1 2020-01-02 123.0 123.1 122.5 122.7   1875</span>
-<span class="co">#&gt; 2 2020-01-03 122.7 122.8 122.6 122.8   1479</span>
-<span class="co">#&gt; 3 2020-01-06 122.8 123.4 122.4 123.3   1792</span>
-<span class="co">#&gt; 4 2020-01-07 123.3 124.3 123.3 124.1   1977</span>
-<span class="co">#&gt; 5 2020-01-08 124.1 124.8 124.0 124.8   2239</span>
-<span class="co">#&gt; 6 2020-01-09 124.8 125.4 124.5 125.3   1842</span>
-<span class="co">#&gt; 7 2020-01-10 125.3 125.3 124.8 125.2   2548</span>
-<span class="co">#&gt; 8 2020-01-13 125.2 125.3 125.1 125.2   2946</span>
-<span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">sample_ohlc_data</span><span class="op">[</span><span class="fl">7</span><span class="op">:</span><span class="fl">10</span>, <span class="op">]</span>
-<span class="va">data2</span>
-<span class="co">#&gt;          time  open  high   low close volume</span>
-<span class="co">#&gt; 7  2020-01-10 125.3 125.3 124.8 125.2   2548</span>
-<span class="co">#&gt; 8  2020-01-13 125.2 125.3 125.1 125.2   2946</span>
-<span class="co">#&gt; 9  2020-01-14 125.2 125.2 124.3 124.4   2796</span>
-<span class="co">#&gt; 10 2020-01-15 124.4 124.5 123.7 123.9   2879</span>
-<span class="fu"><a href="../reference/df_append.html">df_append</a></span><span class="op">(</span><span class="va">data1</span>, <span class="va">data2</span><span class="op">)</span>
-<span class="co">#&gt;          time  open  high   low close volume</span>
-<span class="co">#&gt; 1  2020-01-02 123.0 123.1 122.5 122.7   1875</span>
-<span class="co">#&gt; 2  2020-01-03 122.7 122.8 122.6 122.8   1479</span>
-<span class="co">#&gt; 3  2020-01-06 122.8 123.4 122.4 123.3   1792</span>
-<span class="co">#&gt; 4  2020-01-07 123.3 124.3 123.3 124.1   1977</span>
-<span class="co">#&gt; 5  2020-01-08 124.1 124.8 124.0 124.8   2239</span>
-<span class="co">#&gt; 6  2020-01-09 124.8 125.4 124.5 125.3   1842</span>
-<span class="co">#&gt; 7  2020-01-10 125.3 125.3 124.8 125.2   2548</span>
-<span class="co">#&gt; 8  2020-01-13 125.2 125.3 125.1 125.2   2946</span>
-<span class="co">#&gt; 9  2020-01-14 125.2 125.2 124.3 124.4   2796</span>
-<span class="co">#&gt; 10 2020-01-15 124.4 124.5 123.7 123.9   2879</span></code></pre></div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
-</h2>
-<p>Gao, C. (2021), <em>ichimoku: Visualization and Tools for Ichimoku Kinko Hyo Strategies</em>. R package version 1.3.1, <a href="https://CRAN.R-project.org/package=ichimoku" class="external-link uri">https://CRAN.R-project.org/package=ichimoku</a>.</p>
+<p>Can be used to update price dataframes retrieved by
+<code><a href="../reference/oanda.html">oanda()</a></code>. The function is designed to update existing data
+with new values as they become available. As opposed to
+<code><a href="../reference/df_merge.html">df_merge()</a></code>, the data in ‘new’ will overwrite the data in
+‘old’ rather than create duplicates.</p>
+<p>If the attribute specified by ‘keep.attr’ is present in ‘new’, for
+example the ‘timestamp’ in pricing data returned by
+<code><a href="../reference/oanda.html">oanda()</a></code>, this is retained. If the attribute is not found in
+‘new’, the argument has no effect. All other custom attributes are
+dropped.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">sample_ohlc_data</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span>, <span class="op">]</span></span>
+<span><span class="va">data1</span></span>
+<span><span class="co">#&gt;         time  open  high   low close volume</span></span>
+<span><span class="co">#&gt; 1 2020-01-02 123.0 123.1 122.5 122.7   1875</span></span>
+<span><span class="co">#&gt; 2 2020-01-03 122.7 122.8 122.6 122.8   1479</span></span>
+<span><span class="co">#&gt; 3 2020-01-06 122.8 123.4 122.4 123.3   1792</span></span>
+<span><span class="co">#&gt; 4 2020-01-07 123.3 124.3 123.3 124.1   1977</span></span>
+<span><span class="co">#&gt; 5 2020-01-08 124.1 124.8 124.0 124.8   2239</span></span>
+<span><span class="co">#&gt; 6 2020-01-09 124.8 125.4 124.5 125.3   1842</span></span>
+<span><span class="co">#&gt; 7 2020-01-10 125.3 125.3 124.8 125.2   2548</span></span>
+<span><span class="co">#&gt; 8 2020-01-13 125.2 125.3 125.1 125.2   2946</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">sample_ohlc_data</span><span class="op">[</span><span class="fl">7</span><span class="op">:</span><span class="fl">10</span>, <span class="op">]</span></span>
+<span><span class="va">data2</span></span>
+<span><span class="co">#&gt;          time  open  high   low close volume</span></span>
+<span><span class="co">#&gt; 7  2020-01-10 125.3 125.3 124.8 125.2   2548</span></span>
+<span><span class="co">#&gt; 8  2020-01-13 125.2 125.3 125.1 125.2   2946</span></span>
+<span><span class="co">#&gt; 9  2020-01-14 125.2 125.2 124.3 124.4   2796</span></span>
+<span><span class="co">#&gt; 10 2020-01-15 124.4 124.5 123.7 123.9   2879</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/df_append.html">df_append</a></span><span class="op">(</span><span class="va">data1</span>, <span class="va">data2</span><span class="op">)</span></span>
+<span><span class="co">#&gt;          time  open  high   low close volume</span></span>
+<span><span class="co">#&gt; 1  2020-01-02 123.0 123.1 122.5 122.7   1875</span></span>
+<span><span class="co">#&gt; 2  2020-01-03 122.7 122.8 122.6 122.8   1479</span></span>
+<span><span class="co">#&gt; 3  2020-01-06 122.8 123.4 122.4 123.3   1792</span></span>
+<span><span class="co">#&gt; 4  2020-01-07 123.3 124.3 123.3 124.1   1977</span></span>
+<span><span class="co">#&gt; 5  2020-01-08 124.1 124.8 124.0 124.8   2239</span></span>
+<span><span class="co">#&gt; 6  2020-01-09 124.8 125.4 124.5 125.3   1842</span></span>
+<span><span class="co">#&gt; 7  2020-01-10 125.3 125.3 124.8 125.2   2548</span></span>
+<span><span class="co">#&gt; 8  2020-01-13 125.2 125.3 125.1 125.2   2946</span></span>
+<span><span class="co">#&gt; 9  2020-01-14 125.2 125.2 124.3 124.4   2796</span></span>
+<span><span class="co">#&gt; 10 2020-01-15 124.4 124.5 123.7 123.9   2879</span></span></code></pre></div>
 <hr>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
 </div>
-
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
 
-      <footer><div class="copyright">
-  <p></p>
-<p>Developed by Charlie Gao.</p>
+    <footer><div class="pkgdown-footer-left">
+  <p>Developed by Charlie Gao.</p>
 </div>
 
-<div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<div class="pkgdown-footer-right">
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
 
   
-
 
   
 
