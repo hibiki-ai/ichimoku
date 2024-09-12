@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ichimoku</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,6 +73,7 @@
 <span>  <span class="va">server</span>,</span>
 <span>  <span class="va">apikey</span>,</span>
 <span>  new.process <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  multi.session <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  launch.browser <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  periods <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">9L</span>, <span class="fl">26L</span>, <span class="fl">52L</span><span class="op">)</span></span>
@@ -107,8 +108,8 @@ cloud is always displayed.</p></dd>
 
 
 <dt id="arg-price">price<a class="anchor" aria-label="anchor" href="#arg-price"></a></dt>
-<dd><p>[default "M"] pricing component, one of "M" (midpoint), "B" (bid)
-or "A" (ask).</p></dd>
+<dd><p>[default "M"] pricing component, one of "M" (midpoint), "B"
+(bid) or "A" (ask).</p></dd>
 
 
 <dt id="arg-theme">theme<a class="anchor" aria-label="anchor" href="#arg-theme"></a></dt>
@@ -124,14 +125,14 @@ oscillator type.</p></dd>
 
 <dt id="arg-server">server<a class="anchor" aria-label="anchor" href="#arg-server"></a></dt>
 <dd><p>(optional) specify the "practice" or "live" server according to
-the account type held. If not specified, will default to "practice", unless
-this has been changed by <code><a href="oanda_switch.html">oanda_switch</a></code>.</p></dd>
+the account type held. If not specified, will default to "practice",
+unless this has been changed by <code><a href="oanda_switch.html">oanda_switch</a></code>.</p></dd>
 
 
 <dt id="arg-apikey">apikey<a class="anchor" aria-label="anchor" href="#arg-apikey"></a></dt>
-<dd><p>(optional) string containing the OANDA fxTrade API key (personal
-access token), or function that returns this string. Does not need to be
-specified if already stored as the environment variable
+<dd><p>(optional) string containing the OANDA fxTrade API key
+(personal access token), or function that returns this string. Does not
+need to be specified if already stored as the environment variable
 <code>OANDA_API_KEY</code> or by <code><a href="oanda_set_key.html">oanda_set_key</a></code>. Can also be
 entered interactively if not specified.</p></dd>
 
@@ -142,6 +143,13 @@ new R process, unblocking the current process and allowing continued use
 of the R console.</p></dd>
 
 
+<dt id="arg-multi-session">multi.session<a class="anchor" aria-label="anchor" href="#arg-multi-session"></a></dt>
+<dd><p>[default FALSE] if TRUE, does not automatically close
+the Shiny app when an individual session (web browser page) disconnects.
+Use with caution in conjunction with ‘new.process’ as the Shiny
+app continues to run in the background process.</p></dd>
+
+
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>additional arguments passed along to <code><a href="ichimoku.html">ichimoku</a></code> for
 calculating the ichimoku cloud, <code><a href="autoplot.ichimoku.html">autoplot</a></code> to set chart
@@ -149,11 +157,11 @@ parameters, or the 'options' argument of <code><a href="https://rdrr.io/pkg/shin
 
 
 <dt id="arg-launch-browser">launch.browser<a class="anchor" aria-label="anchor" href="#arg-launch-browser"></a></dt>
-<dd><p>[default TRUE] If TRUE, the system's default web browser
-will be launched automatically after the app is started. The value of this
-argument can also be a function to call with the application's URL. To use
-the default Shiny viewer in RStudio, please specify
-<code>getOption("shiny.launch.browser")</code>.</p></dd>
+<dd><p>[default TRUE] If TRUE, the system's default web
+browser will be launched automatically after the app is started. The
+value of this argument can also be a function to call with the
+application's URL. To use the default Shiny viewer in RStudio, please
+specify <code>getOption("shiny.launch.browser")</code>.</p></dd>
 
 
 <dt id="arg-periods">periods<a class="anchor" aria-label="anchor" href="#arg-periods"></a></dt>
